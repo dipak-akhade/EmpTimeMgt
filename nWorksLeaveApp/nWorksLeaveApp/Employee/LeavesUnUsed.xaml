@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:sys="clr-namespace:System;assembly=mscorlib"  
+             xmlns:color="clr-namespace:nWorksLeaveApp.Common" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nWorksLeaveApp.Employee.LeavesUnUsed">
+    <ContentPage.Content>
+        <StackLayout Spacing="30" Padding="30">
+            <ListView x:Name ="Listview_leavesTakenbutNotUsed"   VerticalOptions="Center" HorizontalOptions="Center"  SeparatorVisibility="None"  BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="50"   >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                <StackLayout Orientation="Horizontal" Spacing="5" Padding="5">
+                                    <Label Text="{Binding date}" FontSize="12" TextColor="{x:Static color:ColorResources.btnTextColor}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <Label Text="Holiday" FontSize="12" TextColor="{x:Static color:ColorResources.btnTextColor}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding weekday}" FontSize="12" TextColor="{x:Static color:ColorResources.btnTextColor}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

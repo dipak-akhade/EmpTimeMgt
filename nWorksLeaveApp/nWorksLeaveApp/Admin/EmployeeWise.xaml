@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nWorksLeaveApp.Admin.EmployeeWise"
+             xmlns:color="clr-namespace:nWorksLeaveApp.Common" 
+ xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <StackLayout Orientation="Horizontal" WidthRequest="300">
+                <Button x:Name="btnPrev" Clicked="btnPrev_Clicked" Text="Prev" WidthRequest="60" HorizontalOptions="StartAndExpand" FontAttributes="Bold" BackgroundColor="Fuchsia" TextColor="White"/>
+                <Label x:Name="HeaderDate" FontFamily="HelveticaNeue-Medium"  FontSize="20" VerticalOptions="Center" FontAttributes="Bold" TextColor="Lime" HorizontalOptions="CenterAndExpand"/>
+                <Button x:Name="btnNext" Clicked="btnNext_Clicked" Text="Next" WidthRequest="60" HorizontalOptions="EndAndExpand" FontAttributes="Bold" BackgroundColor="Fuchsia" TextColor="White"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Label Text="Date" FontFamily="HelveticaNeue-Medium" FontSize="14" WidthRequest="100" TextColor="Aqua" VerticalOptions="Center" />
+                <Label Text="In Time" FontFamily="HelveticaNeue-Medium" FontSize="14" WidthRequest="60" TextColor="Aqua" VerticalOptions="Center" />
+                <Label Text="Out Time" FontFamily="HelveticaNeue-Medium" FontSize="14" WidthRequest="60" TextColor="Aqua" VerticalOptions="Center" />
+                <Label Text="Total" FontFamily="HelveticaNeue-Medium" FontSize="14" WidthRequest="60" TextColor="Aqua" VerticalOptions="Center" />
+            </StackLayout>
+            <ListView x:Name ="listof_employeewiseRecord" ItemTapped="listof_employeewiseRecord_ItemTapped" SeparatorVisibility="None" BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="70"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                <StackLayout Spacing="5" Padding="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="Start" WidthRequest="95">
+                                        <Label Text="{Binding date}" FontSize="13" TextColor="{Binding Is_Loc_Device_Changed}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                        <Label Text="{Binding weekday}" FontSize="13" TextColor="{Binding Is_Loc_Device_Changed}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding In}" FontSize="13" WidthRequest="65" TextColor="{Binding Is_Loc_Device_Changed}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Out}" FontSize="13" WidthRequest="65" TextColor="{Binding Is_Loc_Device_Changed}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding totalInTime}" FontSize="13" WidthRequest="65" TextColor="{Binding Is_Loc_Device_Changed}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+                                    <Image WidthRequest="35" HeightRequest="40" BackgroundColor="Black" Source="info.png" VerticalOptions="Center" HorizontalOptions="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

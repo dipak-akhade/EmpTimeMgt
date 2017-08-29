@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nWorksLeaveApp.Admin.admin_EventCalendar"
+             Title="Event Calendar" 
+			xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+			xmlns:color="clr-namespace:nWorksLeaveApp.Common">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="20">
+
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Select Occasion "  TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand"/>
+                <Picker x:Name="picker_occasion" Title="Occasion" TextColor="{x:Static color:ColorResources.btnTextColor}" BackgroundColor="Gray" HorizontalOptions="EndAndExpand"  WidthRequest="200"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Choose date" VerticalOptions="CenterAndExpand" TextColor="{x:Static color:ColorResources.btnTextColor}" />
+                <DatePicker x:Name="choosedDate"  TextColor="{x:Static color:ColorResources.btnTextColor}" BackgroundColor="Gray" HorizontalOptions="EndAndExpand" WidthRequest="200" Date="{x:Static sys:DateTime.Now}">
+                    <DatePicker.Format>dd-MMM-yyyy</DatePicker.Format>
+                </DatePicker>
+            </StackLayout>
+
+            <Button Clicked="Add_Click" HorizontalOptions="CenterAndExpand" WidthRequest="200" TextColor="White"  Text="  Add  " BackgroundColor="#ed1f29"/>
+
+
+            <ListView x:Name ="listview_Events" SeparatorVisibility="None" BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="60"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Occasion}" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding OccasionDate}" FontSize="12" TextColor="{x:Static color:ColorResources.btnTextColor}"/>
+                                            <Label Text=" - " TextColor="{x:Static color:ColorResources.btnTextColor}"/>
+                                            <Label Text="{Binding OccasionWeekDay}" FontSize="12" TextColor="{x:Static color:ColorResources.btnTextColor}"  HorizontalOptions="StartAndExpand" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Button WidthRequest="70"  TextColor="{x:Static color:ColorResources.btnTextColor}" BackgroundColor="#ed1f29" Clicked="onDeleteClicked" Text="Delete"  FontSize="12" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button WidthRequest="100" Text="Submit" Clicked="Submit_Click" TextColor="{x:Static color:ColorResources.btnTextColor}" BackgroundColor="#ed1f29" VerticalOptions="EndAndExpand"/>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage 
+			xmlns="http://xamarin.com/schemas/2014/forms"  
+
+			BackgroundColor="#ffffcc" 
+
+			xmlns:color="clr-namespace:nWorksLeaveApp.Common" 
+
+			xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+
+			x:Class="nWorksLeaveApp.Employee.LoginPage">
+
+    <ContentPage.Content>
+
+        <StackLayout Spacing="20" Padding="20" VerticalOptions="Center">
+
+            <ActivityIndicator x:Name="activityIndicator" Color="Red" IsRunning="false" IsVisible="false" HeightRequest="50" WidthRequest="50"/>
+
+            <Entry x:Name="entryUsername" Placeholder="Firstname.Lastname"  IsPassword="false"  />
+
+            <Entry x:Name="entryPassword" Placeholder="Password" IsPassword="true"  />
+
+            <!--<Entry x:Name="entryUsername" TextColor="{x:Static color:ColorResources.entryTextColor}" Placeholder="Firstname.Lastname" PlaceholderColor="Gray" IsPassword="false" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}" />
+
+<Entry x:Name="entryPassword" TextColor="{x:Static color:ColorResources.entryTextColor}" Placeholder="Password" PlaceholderColor="Gray" IsPassword="true" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}" />-->
+
+            <Button x:Name="btnLogin"     TextColor="White" Text="Login" Clicked="btnLoginClicked"  BackgroundColor="{x:Static color:ColorResources.commonButtonBackgroundColor}"/>
+
+            <Label x:Name="linkForgotPassword"  HorizontalOptions="End" Text="Forgot Password?" TextColor="#0B0FF6"/>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

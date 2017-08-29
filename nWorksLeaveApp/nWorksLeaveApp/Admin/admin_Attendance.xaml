@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nWorksLeaveApp.Admin.admin_Attendance"
+ 	        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+ 	        xmlns:color="clr-namespace:nWorksLeaveApp.Common" 
+	        BackgroundColor="#ffffcc" 	Title="Attendance"
+             >
+    <ContentPage.Content>
+
+        <StackLayout Spacing="5" Padding="5" >
+
+            <Picker x:Name="pickerEmployee" SelectedIndexChanged="PickerEmployee_SelectedIndexChanged" HorizontalOptions="CenterAndExpand" Title="Select Employee"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="Leave/s Taken" TextColor="{x:Static color:ColorResources.btnBackgroundColor}"   HorizontalOptions="CenterAndExpand" />
+
+                <Label Grid.Row="0" Grid.Column="1" Text="Holiday/s Taken" TextColor="{x:Static color:ColorResources.btnBackgroundColor}"   HorizontalOptions="CenterAndExpand"/>
+
+
+                <ListView x:Name ="leavesTaken" Grid.Row="1" Grid.Column="0" ItemTapped="leavesTaken_Tapped"  SeparatorVisibility="None"  BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="50"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                    <StackLayout  Orientation="Horizontal" Spacing="15">
+                                        <Label Text="{Binding date}" FontSize="12" FontAttributes="Bold" TextColor="{x:Static color:ColorResources.btnTextColor}"/>
+                                        <Label Text="{Binding leaveType}" FontSize="14" VerticalOptions="Center" HorizontalOptions="End" TextColor="Aqua"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding weekday}" FontSize="12" TextColor="{x:Static color:ColorResources.btnTextColor}" HorizontalOptions="StartAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name ="holidaysTaken" Grid.Row="1" Grid.Column="1"  ItemTapped="holidaysTaken_Tapped"  SeparatorVisibility="None"   BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="40"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                    <StackLayout Orientation="Horizontal" Spacing="5">
+                                        <Label Text="{Binding date}" FontSize="12" FontAttributes="Bold" TextColor="{x:Static color:ColorResources.btnTextColor}"/>
+                                        <Label Text="{Binding weekday}" FontSize="12" TextColor="{x:Static color:ColorResources.btnTextColor}" HorizontalOptions="StartAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
+
+            <Label  Text="* Below figures does not includes next year statistics." FontSize="8"  TextColor="Lime" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+
+            <Grid RowSpacing="1" ColumnSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Row="0" Grid.Column="0">
+                    <Label x:Name="totalLeaves"  FontSize="30" TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Label  Text="Total Leaves" FontSize="12"  TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="0" Grid.Column="1">
+                    <Label x:Name="totalHolidays"  FontSize="30" TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Label  Text="Total Holidays" FontSize="12"  TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Grid.Column="0">
+                    <Label x:Name="balanceLeaves" FontSize="30" TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Label  Text="Balance Leaves" FontSize="12"  TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Grid.Column="1">
+                    <Label x:Name="balanceHolidays"   FontSize="30" TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                    <Label  Text="Balance Holidays" FontSize="12"  TextColor="{x:Static color:ColorResources.TextColor}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+
+
+            </Grid>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

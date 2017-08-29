@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="nWorksLeaveApp.Admin.PendingRequest"
+xmlns:color="clr-namespace:nWorksLeaveApp.Common"
+Title="Pending Request/s">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="20">
+            <ActivityIndicator x:Name="MyActivityIndicator" Color="Red" IsVisible="false" IsRunning="false" />
+            <StackLayout Orientation="Horizontal" BackgroundColor="#191919" WidthRequest="50">
+                <Label Text="Requested by" FontAttributes="Bold" TextColor="Red" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            <ListView x:Name ="listview_Notification" ItemTapped="listview_Notification_Tapped"  SeparatorVisibility="None" BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="60"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical">
+                                <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                <StackLayout Orientation="Horizontal" Spacing="30">
+
+                                    <Label Text="{Binding userFullName}" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                                    <!--                           	<Label Text="{Binding requestedOn}" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"/>-->
+
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

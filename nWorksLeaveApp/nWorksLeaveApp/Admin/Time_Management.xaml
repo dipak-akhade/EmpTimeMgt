@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 		
+		xmlns:color="clr-namespace:nWorksLeaveApp.Common"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="nWorksLeaveApp.Admin.Time_Management"
+		xmlns:sys="clr-namespace:System;assembly=mscorlib"  >
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="5" Padding="5">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="250" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140" />
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="140" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0"  Text="List Of Employees" FontSize="14" TextColor="{x:Static color:ColorResources.TextColor}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Label Grid.Column="2" Grid.Row="0"  Text="Generate Report For Employees" FontSize="14" TextColor="{x:Static color:ColorResources.TextColor}" FontAttributes="Bold" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                <ListView Grid.Column="0" Grid.Row="1" x:Name="listof_Employees"   BackgroundColor="White"  SeparatorVisibility="None" HorizontalOptions="StartAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5" Spacing="5" Orientation="Horizontal">
+                                    <Label Text="{Binding empName}" VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="12" TextColor="{x:Static color:ColorResources.listTextColor}" />
+                                    <!--                            <Button Clicked="onSelectClicked" Image="unChecked.png"  HeightRequest="30" WidthRequest="30"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>-->
+                                    <Image   Source="unChecked.png"  HeightRequest="30" WidthRequest="30"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="onSelectClicked"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Grid Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="greaterThan1" Grid.Column="0" Grid.Row="0" Clicked="greaterThan1Clicked" HorizontalOptions="Center"/>
+                    <Button x:Name="greaterThan2" Grid.Column="0" Grid.Row="1" Clicked="greaterThan2Clicked" HorizontalOptions="Center"/>
+                    <Button x:Name="lessThan1" Grid.Column="0" Grid.Row="2" Clicked="lessThan1Clicked" HorizontalOptions="Center"/>
+                    <Button x:Name="lessThan2" Grid.Column="0" Grid.Row="3" Clicked="lessThan2Clicked" HorizontalOptions="Center"/>
+                </Grid>
+
+
+                <ListView Grid.Column="2" Grid.Row="1"   x:Name="listof_generateReportForEmployees"  BackgroundColor="White" SeparatorVisibility="None" HorizontalOptions="EndAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5" Orientation="Horizontal" Spacing="5">
+                                    <Label Text="{Binding empName}" VerticalOptions="CenterAndExpand" FontAttributes="Bold" TextColor="{x:Static color:ColorResources.listTextColor}" FontSize="12"/>
+                                    <!--                             <Button Clicked="onRemoveClicked" Image="checked.png"  HeightRequest="30" WidthRequest="30"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>-->
+                                    <Image  Source="checked.png"  HeightRequest="30" WidthRequest="30"  HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="onRemoveClicked"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="170" />
+                    <ColumnDefinition Width="170" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" FontSize="14" Text="From Date" TextColor="{x:Static color:ColorResources.TextColor}" FontAttributes="Bold" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+                <Label Grid.Column="1" Grid.Row="0" FontSize="14" Text="To Date" TextColor="{x:Static color:ColorResources.TextColor}" FontAttributes="Bold" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                <DatePicker Grid.Column="0" Grid.Row="1" DateSelected="DateSelected_fromDatePicker" x:Name="fromDatePicker" Date="{x:Static sys:DateTime.Now}" HorizontalOptions="CenterAndExpand" WidthRequest="140">
+                    <DatePicker.Format>dd-MMM-yyyy</DatePicker.Format>
+                </DatePicker>
+                <DatePicker Grid.Column="1" Grid.Row="1" DateSelected="DateSelected_toDatePicker" x:Name="toDatePicker" Date="{x:Static sys:DateTime.Now}" HorizontalOptions="CenterAndExpand" WidthRequest="140">
+                    <DatePicker.Format>dd-MMM-yyyy</DatePicker.Format>
+                </DatePicker>
+
+                <Label Grid.Column="0" Grid.Row="2" Text="Generate Report..." TextColor="{x:Static color:ColorResources.TextColor}" FontAttributes="Bold" VerticalOptions="EndAndExpand" HorizontalOptions="Start"/>
+                <Button Grid.Column="0" Grid.Row="3" Text="Employeewise" BackgroundColor="#00AC93" Clicked="EmployeewiseClicked" TextColor="Black"/>
+                <Button Grid.Column="1" Grid.Row="3" Text="Datewise" BackgroundColor="#00EC93" Clicked="DatewiseClicked" TextColor="Black"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

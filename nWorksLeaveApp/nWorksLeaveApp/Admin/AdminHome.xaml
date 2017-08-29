@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nWorksLeaveApp.Admin.AdminHome"
+             xmlns:color="clr-namespace:nWorksLeaveApp.Common">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10" VerticalOptions="CenterAndExpand" >
+            <Button  BackgroundColor="Red" TextColor="White" Text="Logout" Clicked="btnLogout_Click" WidthRequest="80" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand"/>
+
+            <Grid HorizontalOptions="CenterAndExpand">
+
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition x:Name="c1" />
+                    <ColumnDefinition  x:Name="c2" />
+                    <ColumnDefinition x:Name="c3" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="r1" />
+                    <RowDefinition  x:Name="r2"  />
+                    <RowDefinition  x:Name="r3" />
+                    <RowDefinition  x:Name="r4" />
+                </Grid.RowDefinitions>
+
+                <!-- 					First Row-->
+                <StackLayout x:Name="stackTimeManagement"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  BackgroundColor="#00EC93" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="timeManagementClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Time Management" FontFamily="Arial Unicode MS" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+
+                <!--  					Second Row-->
+                <StackLayout x:Name="stackAttendance" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#00CFEC" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="attendanceClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Attendance" FontFamily="Arial Unicode MS" TextColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+
+                <!--  					Third Row-->
+                <StackLayout  Grid.Column="0" Grid.Row="2"  BackgroundColor="#0059EC" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="stackOnboard"  Tapped="onBoardClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Onboard&#10;Employee" FontFamily="Arial Unicode MS"  TextColor="{x:Static color:ColorResources.tileTextColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout x:Name="stackEmpMgt" Grid.Column="1" Grid.Row="2"  BackgroundColor="#FFC300" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="empMgtClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Employee&#10;Management" FontFamily="Arial Unicode MS"  TextColor="{x:Static color:ColorResources.tileTextColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout x:Name="stackPendingRequest" Grid.Column="2" Grid.Row="2"  BackgroundColor="#E5E4E2" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PendingRequestClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Pending &#10;Request" FontFamily="Arial Unicode MS"  TextColor="{x:Static color:ColorResources.tileTextColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <Button Grid.Column="2" Grid.Row="2" x:Name="btnNotif" FontSize="18" Text="{Binding Notifications}" FontFamily="Arial Unicode MS"  TextColor="Red" BackgroundColor="Transparent" HeightRequest="40" WidthRequest="40"  VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand"/>
+
+                <!--  					Fourth Row-->
+                <StackLayout x:Name="stackEventCalendar" Grid.Column="0" Grid.Row="3"  BackgroundColor="#9300EC" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="eventCalendarClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Event Calendar" FontFamily="Arial Unicode MS"  TextColor="{x:Static color:ColorResources.tileTextColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+                <StackLayout x:Name="stackAdminMgt" Grid.Column="1" Grid.Row="3"  BackgroundColor="#EC00CF" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="admMgtClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Admin&#10;Management" FontFamily="Arial Unicode MS" TextColor="{x:Static color:ColorResources.tileTextColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <StackLayout x:Name="stackAdminRgt" Grid.Column="2" Grid.Row="3"  BackgroundColor="#C70039" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="admRegClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Admin&#10;Registration" FontFamily="Arial Unicode MS"  TextColor="{x:Static color:ColorResources.tileTextColor}"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

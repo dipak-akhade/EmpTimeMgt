@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+ xmlns="http://xamarin.com/schemas/2014/forms"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+   x:Class="nWorksLeaveApp.Admin.RequestedLeavesOfUser"
+   xmlns:color="clr-namespace:nWorksLeaveApp.Common"
+>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="20" x:Name="myStackLayout">
+
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="1" Text="Leaves" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Red" FontSize="14"/>
+                <Label Grid.Row="0" Grid.Column="2" Text="Holidays" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Red" FontSize="14"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Year to Day" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Year to Month" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+                <Label Grid.Row="3" Grid.Column="0" Text="Year to Year" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+
+                <Label Grid.Row="1" Grid.Column="1" x:Name="_y2d" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="14"/>
+                <Label Grid.Row="1" Grid.Column="2" x:Name="y2d" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="14"/>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="_y2m" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="14"/>
+                <Label Grid.Row="2" Grid.Column="2" x:Name="y2m" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="14"/>
+                <Label Grid.Row="3" Grid.Column="1" x:Name="_y2y" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="14"/>
+                <Label Grid.Row="3" Grid.Column="2" x:Name="y2y" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="14"/>
+
+            </Grid>
+
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="Date and Type" WidthRequest="120" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+
+                <Label Text="With Pay" WidthRequest="70" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+
+                <Label Text="Accept" WidthRequest="80" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Red"  FontSize="14"/>
+
+
+            </StackLayout>
+
+            <ActivityIndicator x:Name="MyActivityIndicator" Color="Red" IsVisible="false" IsRunning="false" />
+
+            <ScrollView>
+                <ListView x:Name ="listview_Leaves" SeparatorVisibility="None" BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="60"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                    <StackLayout Orientation="Horizontal" Spacing="20">
+                                        <StackLayout>
+                                            <Label Text="{Binding leavedate}" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding requestedAs}" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+                                        </StackLayout>
+
+                                        <Image   Source="checked.png"  HeightRequest="30" WidthRequest="30"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="onWithPayClicked"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+
+                                        <Image   Source="checked.png"  HeightRequest="30" WidthRequest="30"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                                            <Image.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="onAcceptClicked"/>
+                                            </Image.GestureRecognizers>
+                                        </Image>
+                                        <!--                           	<Button x:Name="btnSelectDeselect" BackgroundColor="Green" Text="Selected" WidthRequest="100" TextColor="White" Clicked="btnSelectDeselect_Click" HorizontalOptions="EndAndExpand"/>-->
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <Button Text="Confirm" x:Name="btnConfirm" TextColor="White" WidthRequest="250" BackgroundColor="Red" Clicked="btnConfirm_Click"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+Title="Leaves (22*)"  BackgroundColor="Black" xmlns:color="clr-namespace:nWorksLeaveApp"  xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="nWorksLeaveApp.Employee.PageLeave" xmlns:local="clr-namespace:nWorksLeaveApp">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="10" >
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="A) Rolled over from the previous year:" Grid.Row="0" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="A_Rolled_over_from_the_previous_year" Grid.Row="0" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="B) Earned in the current year:"  Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="B_Earned_in_the_current_year" Grid.Row="1" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="C) Additional earned in the current year:" Grid.Row="2" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="C_Additional_earned_in_the_current_year" Grid.Row="2" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="D) Total in the current year (A+B+C):" Grid.Row="3" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="D_Total_in_the_current_year" Grid.Row="3" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+
+
+                <Label x:Name="Label_Total_used_in_the_current_year" Text="E) Total used in the current year:" Grid.Row="4" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand">
+
+                </Label>
+                <Label x:Name="E_Total_used_in_the_current_year" Grid.Row="4" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <!--	 	<StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  >
+	 		<StackLayout.GestureRecognizers>
+       			<TapGestureRecognizer Tapped="StackUsedLeavesClicked"/>
+    		</StackLayout.GestureRecognizers>
+		 </StackLayout>-->
+
+                <Label x:Name="Label_Total_applied_for_but_not_used" Text="F) Total applied for but not used:" Grid.Row="5" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="F_Total_applied_for_but_not_used" Grid.Row="5" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="G) Total leaves without pay in the current year:" Grid.Row="6" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="G_Total_leaves_without_pay_in_the_current_year" Grid.Row="6" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <!--		 <Label Text="H) Total left in the current year (D-E-F+G):" Grid.Row="7" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>-->
+                <Label Text="H) Total left in the current year:" Grid.Row="7" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="H_Total_left_in_the_current_year" Grid.Row="7" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="I) Total left in the current year to month:" Grid.Row="8" Grid.Column="0" TextColor="White" HorizontalOptions="StartAndExpand"/>
+                <Label x:Name="I_Total_left_in_the_current_year_to_month" Grid.Row="8" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+                <Label Text="J) Total left in the year to date:" Grid.Row="9" Grid.Column="0" TextColor="White" HorizontalOptions="Start" />
+                <!--		 <Picker Grid.Row="8" Grid.Column="0" Title="Month" HorizontalOptions="EndAndExpand">
+		 <Picker.Items>
+            <x:String>Jan</x:String> 
+            <x:String>Feb</x:String> 
+            <x:String>Mar</x:String> 
+            <x:String>Apr</x:String> 
+            <x:String>May</x:String> 
+            <x:String>Jun</x:String> 
+            <x:String>Jul</x:String> 
+            <x:String>Aug</x:String> 
+            <x:String>Sep</x:String> 
+            <x:String>Oct</x:String> 
+            <x:String>Nov</x:String> 
+            <x:String>Dec</x:String>
+        </Picker.Items>
+		</Picker>-->
+                <Label x:Name="J_Total_left_in_the_year_to_date" Grid.Row="9" Grid.Column="1" TextColor="White" HorizontalOptions="EndAndExpand"/>
+
+            </Grid>
+            <Button Clicked="btnRequestClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Text="Request Leave(s)" TextColor="Black" BackgroundColor="#1cd9ff" WidthRequest="200"/>
+
+            <Label Text="* Total number of leaves per year offered by nWorks Technologies." TextColor="#1cd9ff" VerticalOptions="EndAndExpand"  HorizontalOptions="StartAndExpand" FontSize="10"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

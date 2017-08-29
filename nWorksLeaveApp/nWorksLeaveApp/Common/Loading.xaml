@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nWorksLeaveApp.Loading">
+    <ContentPage.Content >
+
+        <StackLayout  VerticalOptions="Center" HorizontalOptions="Center">
+            <Frame  VerticalOptions="Center" HorizontalOptions="Center"  BackgroundColor="White" HeightRequest="100" WidthRequest="200" OutlineColor="Red" HasShadow="true">
+                <StackLayout>
+                    <ActivityIndicator VerticalOptions="Center" HorizontalOptions="Center" Color="Red" IsVisible="true" IsRunning="true"/>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="We're getting things ready" FontSize="14" TextColor="Black"/>
+                    <Label VerticalOptions="Center" HorizontalOptions="Center" Text="This won't take long..." FontSize="10" TextColor="Black"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+x:Class="nWorksLeaveApp.Admin.info_ofdayPage"
+ xmlns:color="clr-namespace:nWorksLeaveApp.Common" 
+ Title="In Detail">
+    <ContentPage.Content>
+        <StackLayout Spacing="5" Padding="5">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Text="In Time" TextColor="Aqua"   HorizontalOptions="CenterAndExpand" />
+
+                <Label Grid.Row="0" Grid.Column="1" Text="Out Time" TextColor="Aqua"   HorizontalOptions="CenterAndExpand"/>
+
+                <ListView x:Name ="ListView_inTime" ItemTapped="ListView_inTimeTapped" Grid.Row="1" Grid.Column="0"  SeparatorVisibility="None"  BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}"  RowHeight="40"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                    <StackLayout Spacing="5" Padding="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                        <Label Text="{Binding INTIMES}" FontSize="13" WidthRequest="65" TextColor="{Binding IsDevice_or_LocationChanged}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView x:Name ="ListView_outTime" ItemTapped="ListView_outTimeTapped" Grid.Row="1" Grid.Column="1"   SeparatorVisibility="None"  BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="40">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                    <StackLayout Spacing="5" Padding="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+
+                                        <Label Text="{Binding OUTTIMES}" FontSize="13" WidthRequest="65" TextColor="{Binding IsDevice_or_LocationChanged}" VerticalOptions="CenterAndExpand" HorizontalOptions="Start"/>
+
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+            </Grid>
+            <StackLayout Spacing="5" Padding="5" Orientation="Vertical">
+                <Label x:Name="Label_Details" TextColor="White"/>
+                <Label x:Name="Label_totalInTime" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="nWorksLeaveApp.Admin.adminRegistration"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:color="clr-namespace:nWorksLeaveApp.Common"
+             Title="Admin Registration">
+    <ContentPage.Content>
+
+        <StackLayout Spacing="10" Padding="10" >
+
+            <Picker x:Name="pickerEmployee" SelectedIndex="0" HorizontalOptions="CenterAndExpand" SelectedIndexChanged="PickerEmployee_SelectedIndexChanged" Title="Select Employee"/>
+
+            <ScrollView>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="30" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--				<Label Grid.Row="0" Grid.Column="0" Text="Status" TextColor="{x:Static color:ColorResources.TextColor}" />
+					<StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+						<Label x:Name="labelActive" TextColor="{x:Static color:ColorResources.TextColor}" HorizontalOptions="EndAndExpand"/>
+						<Switch  x:Name="switchActive" HorizontalOptions="EndAndExpand" Toggled="switchTaggled" />
+					</StackLayout>-->
+
+                    <Label Text="Admin number" Grid.Row="1" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="empNo" Grid.Row="1" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="First name" Grid.Row="2" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}" />
+                    <Entry x:Name="empFname" Grid.Row="2" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Middle name" Grid.Row="3" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="empMname" Grid.Row="3" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Last name" Grid.Row="4" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="empLname" Grid.Row="4" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}" TextChanged="onLastNameChanged"/>
+
+                    <Label Text="Username" Grid.Row="5" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="username" Grid.Row="5" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Password" Grid.Row="6" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="password" Grid.Row="6" Grid.Column="1" IsPassword="true" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Confirm Password" Grid.Row="7" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="confirmPassword" Grid.Row="7" Grid.Column="1" IsPassword="true" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Designation" Grid.Row="8" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="desg" Grid.Row="8" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Address Line 1" Grid.Row="9" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="address1" Grid.Row="9" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Address Line 2" Grid.Row="10" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="address2" Grid.Row="10" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="City" Grid.Row="11" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="city" Grid.Row="11" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="State" Grid.Row="12" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="state" Grid.Row="12" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Country" Grid.Row="13" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="country" Grid.Row="13" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Pin Code" Grid.Row="14" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="pinCode" Grid.Row="14" Grid.Column="1" TextChanged="onPincodeChanged"  TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Date of Hire" Grid.Row="15" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <DatePicker x:Name="dateOfHire" Grid.Row="15" Grid.Column="1"  VerticalOptions="CenterAndExpand" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}">
+                        <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                    </DatePicker>
+
+                    <Label Text="Date of Birth" Grid.Row="16" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <DatePicker x:Name="dateOfBirth" Grid.Row="16" Grid.Column="1"  VerticalOptions="CenterAndExpand"  TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}">
+                        <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                    </DatePicker>
+                    <!--	<Label Text="Date of Birth" Grid.Row="16" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+					<DatePicker x:Name="dateOfBirth" Grid.Row="16" Grid.Column="1"  VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}">
+         				<DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+      				</DatePicker>-->
+
+                    <Label Text="Date of Anniversary" Grid.Row="17" Grid.Column="0"  TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <DatePicker x:Name="dateOfAnniversary" Grid.Row="17" Grid.Column="1"  VerticalOptions="CenterAndExpand"  TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}">
+                        <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                    </DatePicker>
+
+                    <Label Text="Mobile Number" Grid.Row="18" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                    <Entry x:Name="mobileNumber" Grid.Row="18" Grid.Column="1" TextChanged="onMobileNumberChanged" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Email Address" Grid.Row="19" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}" />
+                    <Entry x:Name="emailAddress" Grid.Row="19" Grid.Column="1" TextColor="{x:Static color:ColorResources.entryTextColor}" BackgroundColor="{x:Static color:ColorResources.entryBackgroundColor}"/>
+
+                    <Label Text="Gender" Grid.Row="20" Grid.Column="0" TextColor="{x:Static color:ColorResources.TextColor}"/>
+
+                    <StackLayout Grid.Row="20" Grid.Column="1" Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="onMaleSelected"/>
+                            </StackLayout.GestureRecognizers>
+                            <Image x:Name="imageMale" Source="radio_Check.png"  HorizontalOptions="Start" />
+                            <Label Text="Male" HorizontalOptions="Start" VerticalOptions="Center" FontSize="14" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="onFemaleSelected"/>
+                            </StackLayout.GestureRecognizers>
+                            <Image x:Name="imageFemale" Source="radio_uncheck.png"  HorizontalOptions="Start" />
+                            <Label Text="Female" HorizontalOptions="Start" VerticalOptions="Center" FontSize="14" TextColor="{x:Static color:ColorResources.TextColor}"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </Grid>
+
+            </ScrollView>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="Register" BackgroundColor="#ed1f29" TextColor="{x:Static color:ColorResources.btnTextColor}" WidthRequest="150" Clicked="Register_Click"/>
+                <Button Text="Reset" BackgroundColor="#ed1f29" TextColor="{x:Static color:ColorResources.btnTextColor}" WidthRequest="150" Clicked="Reset_Click"/>
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

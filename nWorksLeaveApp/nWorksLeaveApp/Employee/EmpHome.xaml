@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+		 xmlns="http://xamarin.com/schemas/2014/forms"
+		 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		 xmlns:color="clr-namespace:nWorksLeaveApp.Common"
+		 x:Class="nWorksLeaveApp.Employee.EmpHome">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10" VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <Button BackgroundColor="Red" TextColor="White" Clicked="btnLogout_Click" Text="Logout" WidthRequest="90" VerticalOptions="StartAndExpand" HorizontalOptions="EndAndExpand"/>
+            <Grid>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition x:Name="c1" />
+                    <ColumnDefinition  x:Name="c2" />
+                    <ColumnDefinition x:Name="c3" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition x:Name="r1" />
+                    <RowDefinition  x:Name="r2"  />
+                    <RowDefinition  x:Name="r3" />
+                    <RowDefinition  x:Name="r4" />
+                </Grid.RowDefinitions>
+
+                <!-- 					First Row-->
+                <StackLayout Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  BackgroundColor="#DAF7A6" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="comingInClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Coming In" FontFamily="Arial Unicode MS"  TextColor="{x:Static color:ColorResources.tileTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" Grid.Row="0" BackgroundColor="#FFC300" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="attendanceClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Leaves/&#10;Holidays" FontFamily="Arial Unicode MS" TextColor="{x:Static color:ColorResources.tileTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <!--  					<StackLayout Grid.Column="0" Grid.Row="1" BackgroundColor="#FF5733" >
+  						<StackLayout.GestureRecognizers>}
+						else
+						{
+							await DisplayAlert(" nWorksLeaveApp", "Invalid QR Code!", "OK");
+						}
+       						<TapGestureRecognizer Tapped="statusClicked"/>
+    					</StackLayout.GestureRecognizers>
+    					<Label Text="Status" FontFamily="Arial Unicode MS" TextColor="{x:Static color:ColorResources.tileTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+  					</StackLayout>-->
+
+                <StackLayout Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"  BackgroundColor="#C70039" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="goingOutClicked"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label Text="Going Out" FontFamily="Arial Unicode MS" TextColor="{x:Static color:ColorResources.tileTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <!--  					<StackLayout Grid.Column="2" Grid.Row="2"  BackgroundColor="#00EC93" >
+  						<StackLayout.GestureRecognizers>
+       						<TapGestureRecognizer Tapped="eventCalendarClicked"/>
+    					</StackLayout.GestureRecognizers>
+    					<Label Text="Event Calendar" FontFamily="Arial Unicode MS" TextColor="{x:Static color:ColorResources.tileTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+  					</StackLayout>-->
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

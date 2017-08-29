@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+ xmlns="http://xamarin.com/schemas/2014/forms" 
+ xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+ x:Class="nWorksLeaveApp.Employee.EventCalendar"
+ BackgroundColor="#ffffcc" 
+ xmlns:color="clr-namespace:nWorksLeaveApp.Common">
+    <ContentPage.Content>
+        <StackLayout Spacing="10" Padding="10">
+            <StackLayout Orientation="Horizontal" >
+                <Label Text="No" WidthRequest="20" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+
+                <Label Text="Occasion" WidthRequest="70" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+
+                <Label Text="Date" WidthRequest="60" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" TextColor="Red"  FontSize="14"/>
+
+                <Label Text="WeekDay" WidthRequest="70" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" TextColor="Red" FontSize="14"/>
+
+            </StackLayout>
+            <ListView x:Name ="listview_Events" SeparatorVisibility="None"   BackgroundColor="{x:Static color:ColorResources.PageBackgroundColor}" RowHeight="40"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="false" >
+                            <StackLayout Orientation="Vertical">
+                                <Grid HeightRequest="0.5" BackgroundColor="Red"/>
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+
+                                    <Label Text="{Binding srno}" WidthRequest="20" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" FontSize="12"/>
+
+                                    <Label Text="{Binding Occasion}" WidthRequest="100" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="12"/>
+
+                                    <Label Text="{Binding OccasionDate}" WidthRequest="80" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontSize="12"/>
+
+                                    <Label Text="{Binding OccasionWeekDay}" WidthRequest="70" TextColor="{x:Static color:ColorResources.btnTextColor}" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand" FontSize="12"/>
+
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
